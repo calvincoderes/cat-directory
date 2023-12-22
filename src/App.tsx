@@ -25,8 +25,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<BaseComponent />}>
       <Route index element={<BaseComponent />} />
-      <Route path="login" element={<BaseComponent />} />
-      <Route path="cat/:id" element={<BaseComponent />} />
+      <Route path="/:id" element={<BaseComponent />} />
     </Route>
   )
 )
@@ -34,7 +33,7 @@ const router = createBrowserRouter(
 function App() {
   const [count, setCount] = useState(0);
   
-  return (
+  return ( 
     <>
       <RouterProvider router={router}/>
     </>
