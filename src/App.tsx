@@ -1,13 +1,12 @@
 import { useState } from "react";
+import { Route, createBrowserRouter, createRoutesFromElements, RouterProvider } from 'react-router-dom';
 import { Container, Row, Col, Button } from "react-bootstrap";
-import "./App.css";
+import "./styles/App.css";
 
-function App() {
-  const [count, setCount] = useState(0);
 
+const BaseComponent = () => {
   return (
-    <>
-      <Container>
+    <Container>
         <Row>
           <Col>
             <h1>Hello, Bootstrap in React!</h1>
@@ -19,6 +18,25 @@ function App() {
           </Col>
         </Row>
       </Container>
+  )
+}
+// initialize and define router
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<BaseComponent />}>
+      <Route index element={<BaseComponent />} />
+      <Route path="login" element={<BaseComponent />} />
+      <Route path="cat/:id" element={<BaseComponent />} />
+    </Route>
+  )
+)
+
+function App() {
+  const [count, setCount] = useState(0);
+  
+  return (
+    <>
+      <RouterProvider router={router}/>
     </>
   );
 }
