@@ -14,3 +14,7 @@ export interface GlobalContextPropsInterface {
 export interface GlobalProviderPropsInterface {
     children: ReactNode;
   }
+
+export interface defaultFCInterface {
+children: ReactNode;
+}
